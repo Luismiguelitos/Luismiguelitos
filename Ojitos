@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Felicitación de Cumpleaños</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffe4e1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+        .card {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            text-align: center;
+            animation: fadeIn 2s ease-in-out;
+            position: relative;
+        }
+        .card h1 {
+            color: #ff69b4;
+            animation: slideIn 2s ease-in-out;
+        }
+        .card p {
+            font-size: 16px;
+            color: #333;
+            animation: slideIn 2s ease-in-out;
+        }
+        .heart {
+            color: #ff1493;
+            font-size: 24px;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideIn {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #ff69b4;
+            top: -10px;
+            animation: confettiFall 3s linear infinite;
+        }
+        @keyframes confettiFall {
+            0% { transform: translateY(0) rotate(0); }
+            100% { transform: translateY(100vh) rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>🎉🎂 ¡Feliz Cumpleaños, ojitos! 🎂🎉</h1>
+        <p>Hoy es un día muy especial porque celebramos el cumpleaños de la persona que ilumina mi vida con su sonrisa y llena de amor cada uno de mis días. Quiero desearte un feliz cumpleaños y que todos tus sueños y deseos se hagan realidad. 🎈✨</p>
+        <p>Tu presencia hace que cada momento sea mágico y especial. Gracias por ser mi compañera, mi confidente y mi amor. Eres la razón por la que me levanto cada día con una sonrisa en el rostro y el corazón lleno de felicidad. 🤍</p>
+        <p>Espero que este día esté lleno de alegría, sorpresas y mucho cariño. Mereces todo lo bueno que la vida tiene para ofrecer y más. Estoy muy agradecido de poder compartir este y todos los días contigo. 🌟🥳</p>
+        <p class="heart">Te amo con todo mi corazón. 🤍🥺</p>
+        <p>Con todo mi amor,<br> solecito 💌</p>
+    </div>
+    <script>
+        function createConfetti() {
+            const confetti = document.createElement('div');
+            confetti.classList.add('confetti');
+            confetti.style.left = Math.random() * window.innerWidth + 'px';
+            confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+            document.body.appendChild(confetti);
+            setTimeout(() => {
+                confetti.remove();
+            }, 3000);
+        }
+
+        for (let i = 0; i < 100; i++) {
+            setTimeout(createConfetti, i * 100);
+        }
+    </script>
+</body>
+</html>
+
